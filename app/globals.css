@@ -192,3 +192,50 @@
   max-width: fit-content;
 }
 
+/* Star Field */
+.star-field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: twinkle 4s infinite ease-in-out;
+  transform-origin: center center;
+}
+
+@keyframes twinkle {
+  0% {
+    transform: scale(1);
+    opacity: var(--initial-opacity, 0.3);
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: calc(var(--initial-opacity, 0.3) * 1.5);
+  }
+  100% {
+    transform: scale(1);
+    opacity: var(--initial-opacity, 0.3);
+  }
+}
+
+/* Parallax effect */
+@media (prefers-reduced-motion: no-preference) {
+  .star-field {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  .star {
+    transition: transform 0.1s ease-out;
+  }
+}
+
