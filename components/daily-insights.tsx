@@ -78,7 +78,7 @@ export const DailyInsights: React.FC = () => {
           <Sparkles className="h-8 w-8 text-yellow-400" />
           Daily Insights
         </h2>
-        <p className="text-muted-foreground">Your personalized Pokémon training and battle forecast</p>
+        <p className="text-muted-foreground">Where Astrology Meets Pokémon</p>
       </div>
       {insights.map((insight: Insight, index: number) => {
         const Icon = categoryIcons[insight.category]
