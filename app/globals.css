@@ -186,3 +186,9 @@
   }
 }
 
+/* Badge Styles */
+.insight-card .badge {
+  @apply self-start;
+  max-width: fit-content;
+}
+

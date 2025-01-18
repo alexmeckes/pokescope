@@ -99,7 +99,7 @@ export const DailyInsights: React.FC = () => {
               <CardContent className="card-content">
                 <p className="text-sm text-card-foreground/80">{insight.description}</p>
                 <Badge 
-                  className={`mt-4 bg-transparent border-current text-current ${insight.rarity !== 'Standard' ? 'loading-shimmer' : ''}`}
+                  className={`badge mt-4 bg-transparent border-current text-current inline-flex w-auto px-3 py-1 ${insight.rarity !== 'Standard' ? 'loading-shimmer' : ''}`}
                 >
                   {insight.rarity}
                 </Badge>
