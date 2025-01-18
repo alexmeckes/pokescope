@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState, useCallback } from 'react';
 
 type Star = {
@@ -47,13 +49,10 @@ export const StarField: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
       window.addEventListener('mousemove', handleMouseMove);
+      return () => window.removeEventListener('mousemove', handleMouseMove);
     }
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
   }, [handleMouseMove]);
 
   return (
@@ -69,8 +68,8 @@ export const StarField: React.FC = () => {
             height: `${star.size}px`,
             opacity: star.opacity,
             animationDelay: `${star.animationDelay}s`,
-            '--initial-opacity': star.opacity,
-          } as React.CSSProperties}
+            '--tw-initial-opacity': star.opacity,
+          } as React.CSSProperties & { '--tw-initial-opacity': number }}
         />
       ))}
     </div>

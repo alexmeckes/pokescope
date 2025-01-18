@@ -215,15 +215,15 @@
 @keyframes twinkle {
   0% {
     transform: scale(1);
-    opacity: var(--initial-opacity, 0.3);
+    opacity: var(--tw-initial-opacity, 0.3);
   }
   50% {
     transform: scale(1.2);
-    opacity: calc(var(--initial-opacity, 0.3) * 1.5);
+    opacity: calc(var(--tw-initial-opacity, 0.3) * 1.5);
   }
   100% {
     transform: scale(1);
-    opacity: var(--initial-opacity, 0.3);
+    opacity: var(--tw-initial-opacity, 0.3);
   }
 }
 
