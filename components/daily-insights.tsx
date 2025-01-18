@@ -90,13 +90,13 @@ export const DailyInsights: React.FC = () => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <Card className={`insight-card ${rarityColors[insight.rarity]} glass`}>
-              <CardHeader className="pb-2">
+              <CardHeader className="card-header">
                 <CardTitle className="text-lg flex items-center gap-2">
                   <Icon className="h-5 w-5" />
                   {insight.category}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="card-content">
                 <p className="text-sm text-card-foreground/80">{insight.description}</p>
                 <Badge 
                   className={`mt-4 bg-transparent border-current text-current ${insight.rarity !== 'Standard' ? 'loading-shimmer' : ''}`}
