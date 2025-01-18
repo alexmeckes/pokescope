@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 
 type InsightRarity = 'Standard' | 'Shiny' | 'Legendary' | 'Mythical'
 
-type InsightCategory = 'Training Focus' | 'Battle Outlook' | 'Team Dynamics' | 'Personal Growth'
+type InsightCategory = 'Daily Focus' | 'Daily Challenges' | 'Relationships' | 'Self-Discovery'
 
 type Insight = {
   category: InsightCategory;
@@ -17,15 +17,94 @@ type Insight = {
 }
 
 const insightPool: Insight[] = [
-  { category: 'Training Focus', description: 'Focus on speed training today. Your Pokémon will have extra energy for agility exercises.', rarity: 'Standard' },
-  { category: 'Battle Outlook', description: 'Be cautious in battles. The alignment of Mars suggests potential for unexpected outcomes.', rarity: 'Standard' },
-  { category: 'Team Dynamics', description: 'Your fire-type Pokémon are in harmony. Consider team-building exercises to strengthen bonds.', rarity: 'Standard' },
-  { category: 'Personal Growth', description: 'Reflect on your recent battles. There\'s a valuable lesson hiding in your latest defeat.', rarity: 'Standard' },
-  { category: 'Training Focus', description: 'Rare cosmic alignment boosts your Pokémon\'s special attack. Focus on moves like Psychic or Flamethrower.', rarity: 'Shiny' },
-  { category: 'Battle Outlook', description: 'The stars predict an epic battle ahead. Trust your instincts and lead your team to victory!', rarity: 'Shiny' },
-  { category: 'Team Dynamics', description: 'A legendary bond is forming in your team. Pay attention to unexpected partnerships.', rarity: 'Legendary' },
-  { category: 'Personal Growth', description: 'The wisdom of Arceus touches your spirit. Meditate on the true meaning of being a Pokémon master.', rarity: 'Mythical' },
-]
+  // Standard Insights
+  { 
+    category: 'Daily Focus', 
+    description: 'The stars align with Pikachu\'s electric energy today. Your quick thinking and agility will serve you well in tackling tasks.', 
+    rarity: 'Standard' 
+  },
+  { 
+    category: 'Daily Challenges', 
+    description: 'Like a wise Alakazam, approach today\'s challenges with patience. Mars\' position hints at surprising opportunities.', 
+    rarity: 'Standard' 
+  },
+  { 
+    category: 'Relationships', 
+    description: 'The warmth of Flareon\'s influence brings harmony to your social circle. A great day for strengthening bonds.', 
+    rarity: 'Standard' 
+  },
+  { 
+    category: 'Self-Discovery', 
+    description: 'Under Gardevoir\'s intuitive influence, your emotional intelligence is heightened. Take time for self-reflection.', 
+    rarity: 'Standard' 
+  },
+
+  // Shiny Insights
+  { 
+    category: 'Daily Focus', 
+    description: 'Mewtwo\'s psychic energy amplifies your mental clarity. An excellent time for strategic planning and important decisions.', 
+    rarity: 'Shiny' 
+  },
+  { 
+    category: 'Daily Challenges', 
+    description: 'Channel Dragonite\'s serene strength today. Like calm waters before a storm, prepare for transformative changes ahead.', 
+    rarity: 'Shiny' 
+  },
+  { 
+    category: 'Relationships', 
+    description: 'Togekiss\'s joyful aura surrounds your social sphere. Unexpected connections could blossom into meaningful relationships.', 
+    rarity: 'Shiny' 
+  },
+  { 
+    category: 'Self-Discovery', 
+    description: 'The wisdom of Espeon illuminates your path. Hidden talents emerge as Mercury enters your house of creativity.', 
+    rarity: 'Shiny' 
+  },
+
+  // Legendary Insights
+  { 
+    category: 'Daily Focus', 
+    description: 'Rayquaza\'s cosmic energy aligns with your ambitions. The stars suggest a breakthrough in a long-term project.', 
+    rarity: 'Legendary' 
+  },
+  { 
+    category: 'Daily Challenges', 
+    description: 'Like Lugia calming the stormy seas, your presence will bring balance to chaotic situations today.', 
+    rarity: 'Legendary' 
+  },
+  { 
+    category: 'Relationships', 
+    description: 'The celestial dance of Latias and Latios influences your partnerships. A profound connection may deepen today.', 
+    rarity: 'Legendary' 
+  },
+  { 
+    category: 'Self-Discovery', 
+    description: 'Mew\'s ancient wisdom resonates with your soul. A rare alignment reveals deeper truths about your life\'s purpose.', 
+    rarity: 'Legendary' 
+  },
+
+  // Mythical Insights
+  { 
+    category: 'Daily Focus', 
+    description: 'Arceus\'s divine energy flows through your endeavors. The cosmos aligns perfectly for manifestation and achievement.', 
+    rarity: 'Mythical' 
+  },
+  { 
+    category: 'Daily Challenges', 
+    description: 'Celebi\'s time-bending influence reveals the perfect moment for action. Trust your instincts as they\'ve never been sharper.', 
+    rarity: 'Mythical' 
+  },
+  { 
+    category: 'Relationships', 
+    description: 'Under Jirachi\'s wishmaking influence, your deepest relationship aspirations may materialize in unexpected ways.', 
+    rarity: 'Mythical' 
+  },
+  { 
+    category: 'Self-Discovery', 
+    description: 'Hoopa\'s rings create a gateway to self-understanding. A once-in-a-lifetime opportunity for personal transformation approaches.', 
+    rarity: 'Mythical' 
+  },
+];
 
 const rarityColors: Record<InsightRarity, string> = {
   Standard: 'bg-card border-border',
@@ -35,10 +114,10 @@ const rarityColors: Record<InsightRarity, string> = {
 }
 
 const categoryIcons: Record<InsightCategory, LucideIcon> = {
-  'Training Focus': Zap,
-  'Battle Outlook': Swords,
-  'Team Dynamics': Users,
-  'Personal Growth': Brain
+  'Daily Focus': Zap,
+  'Daily Challenges': Swords,
+  'Relationships': Users,
+  'Self-Discovery': Brain
 }
 
 export const DailyInsights: React.FC = () => {
@@ -47,7 +126,7 @@ export const DailyInsights: React.FC = () => {
   React.useEffect(() => {
     const generateInsights = () => {
       const newInsights: Insight[] = []
-      const categories: InsightCategory[] = ['Training Focus', 'Battle Outlook', 'Team Dynamics', 'Personal Growth']
+      const categories: InsightCategory[] = ['Daily Focus', 'Daily Challenges', 'Relationships', 'Self-Discovery']
       
       categories.forEach(category => {
         const rarityRoll = Math.random()
