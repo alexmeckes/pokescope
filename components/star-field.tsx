@@ -17,16 +17,16 @@ export const StarField: React.FC = () => {
   useEffect(() => {
     const generateStars = () => {
       const newStars: Star[] = [];
-      const numStars = 100;
+      const numStars = 200;
 
       for (let i = 0; i < numStars; i++) {
         newStars.push({
           id: i,
           x: Math.random() * 100,
           y: Math.random() * 100,
-          size: Math.random() * 2 + 1,
-          opacity: Math.random() * 0.5 + 0.3,
-          animationDelay: Math.random() * 3,
+          size: Math.random() * 3 + 0.5,
+          opacity: Math.random() * 0.7 + 0.3,
+          animationDelay: Math.random() * 4,
         });
       }
 
@@ -38,12 +38,12 @@ export const StarField: React.FC = () => {
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     const { clientX, clientY } = e;
-    const moveX = (clientX - window.innerWidth / 2) * 0.01;
-    const moveY = (clientY - window.innerHeight / 2) * 0.01;
+    const moveX = (clientX - window.innerWidth / 2) * 0.02;
+    const moveY = (clientY - window.innerHeight / 2) * 0.02;
 
     const stars = document.querySelectorAll('.star') as NodeListOf<HTMLElement>;
     stars.forEach((star) => {
-      const speed = parseFloat(star.style.width) * 0.2;
+      const speed = parseFloat(star.style.width) * 0.3;
       star.style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
     });
   }, []);

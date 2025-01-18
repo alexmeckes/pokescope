@@ -200,30 +200,37 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
   overflow: hidden;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
 }
 
 .star {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #fff;
   border-radius: 50%;
   animation: twinkle 4s infinite ease-in-out;
   transform-origin: center center;
+  box-shadow: 0 0 3px #fff,
+              0 0 5px #fff,
+              0 0 7px #fff;
 }
 
 @keyframes twinkle {
   0% {
     transform: scale(1);
     opacity: var(--tw-initial-opacity, 0.3);
+    filter: brightness(1);
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.15);
     opacity: calc(var(--tw-initial-opacity, 0.3) * 1.5);
+    filter: brightness(1.2);
   }
   100% {
     transform: scale(1);
     opacity: var(--tw-initial-opacity, 0.3);
+    filter: brightness(1);
   }
 }
 
